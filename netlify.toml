@@ -1,0 +1,14 @@
+# Konfigurasi deploy Netlify untuk PenguHealth (Next.js).
+# Netlify otomatis memakai adapter OpenNext untuk Next.js; plugin tidak perlu dipasang manual.
+#
+# PENTING: JANGAN taruh MONGODB_URI atau AUTH_SECRET di file ini.
+# Variabel di netlify.toml tidak terbaca oleh Functions/Edge Functions saat runtime
+# dan file ini ikut ter-commit ke GitHub. Isi lewat dashboard Netlify
+# (Site configuration > Environment variables).
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
